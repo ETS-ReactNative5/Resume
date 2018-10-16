@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import { Route } from 'react-router-dom';
 
 function TabContainer(props) {
   return (
@@ -26,7 +27,7 @@ const styles = theme => ({
   tabRoot: {
     backgroundColor: 'black',
     centered: true,
-    height: '70px',
+    height: '30%',
   },
   tabSelected: {
     backgroundColor: '#444444'
@@ -58,14 +59,17 @@ class TopMenu extends React.Component {
               classes={{ root: classes.tabRoot }}
               value={value}
               onChange={this.handleChange}>
-
               {this.data.TopMenu.map(item => (
-                <Tab
-                  key={item.id}
-                  id={item.id}
-                  label={item.text}
-                  classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-                />
+                // eslint-disable-next-line react/jsx-key
+                <Route render={({ history}) => (
+                  <Tab
+                    onClick={() => { history.push(`/${item.text}`); }}
+                    key={item.id}
+                    id={item.id}
+                    label={item.text}
+                    classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                  />
+                )} />
               ))}
             </Tabs>
           </AppBar>
