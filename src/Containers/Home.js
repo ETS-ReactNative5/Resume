@@ -12,6 +12,7 @@ class Home extends Component {
         <Grid container spacing={24}>
           <Grid item xs={12}>
             <TopMenu/>
+            <p>Home page</p>
           </Grid>
         </Grid>
       </div>

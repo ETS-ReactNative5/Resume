@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import walkingReducer from '../Animations/Walking/redux/walkingReducer';
+import reducerToDoList from '../Components/ToDoList/ReduxToDoList/reducerToDoList';
 
 
 export const appReducer = combineReducers({
-  walking: walkingReducer,
+  toDoList: reducerToDoList
 });
 
 export default appReducer;

@@ -62,6 +62,7 @@ class TopMenu extends React.Component {
               {this.data.TopMenu.map(item => (
                 // eslint-disable-next-line react/jsx-key
                 <Route render={({ history}) => (
+                  // Todo: Make the Projects be a dropdown menu
                   <Tab
                     onClick={() => { history.push(`/${item.text}`); }}
                     key={item.id}
