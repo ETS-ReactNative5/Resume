@@ -11,9 +11,7 @@ class Home extends Component {
       <div className="App">
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            {/* Todo: Move the Top Menu variables in the REDUX state so the*/}
-            {/*Menu functionality actually works*/}
-            <TopMenu/>
+            <TopMenu value={3}/>
             <p>We are in the projects tab</p>
           </Grid>
         </Grid>

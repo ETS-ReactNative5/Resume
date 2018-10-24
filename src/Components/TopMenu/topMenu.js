@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { Route } from 'react-router-dom';
+import connect from 'react-redux/es/connect/connect';
 
 function TabContainer(props) {
   return (
@@ -29,36 +30,28 @@ const styles = theme => ({
     centered: true,
     height: '30%',
   },
-  tabSelected: {
-    backgroundColor: '#444444'
-  }
 });
 
 class TopMenu extends React.Component {
   constructor(props){
     super(props);
     this.data = topMenuJSON;
-    this.state = {
-      value: 0,
-    };
   }
-
-    handleChange = (event, value) => {
-      this.setState({ value });
+    handleChange = () => {
+      console.log(this.props.value);
+      //this.setState({ value: this.props.value });
     };
 
     render() {
       const {classes } = this.props;
-      const { value } = this.state;
-
       return (
         <div className={classes.root}>
           <AppBar position="static">
             <Tabs
               centered
-              classes={{ root: classes.tabRoot }}
-              value={value}
-              onChange={this.handleChange}>
+              classes={{ root: classes.tabRoot, }}
+              value={this.props.value}
+              onClick={this.handleChange}>
               {this.data.TopMenu.map(item => (
                 // eslint-disable-next-line react/jsx-key
                 <Route render={({ history}) => (
@@ -68,7 +61,7 @@ class TopMenu extends React.Component {
                     key={item.id}
                     id={item.id}
                     label={item.text}
-                    classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                    classes={{ root: classes.tabRoot }}
                   />
                 )} />
               ))}
@@ -79,8 +72,14 @@ class TopMenu extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+  value: state.topMenu.value,
+});
+
 TopMenu.propTypes = {
   classes: PropTypes.object.isRequired,
+  dispatch: PropTypes.func,
+  value: PropTypes.number,
 };
 
-export default withStyles(styles)(TopMenu);
+export default connect(mapStateToProps)(withStyles(styles)(TopMenu));

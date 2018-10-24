@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import connect from 'react-redux/es/connect/connect';
 import { actionConstants } from '../../types/actionConstants';
 import List from '@material-ui/core/List';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -49,6 +50,9 @@ const styles = theme => ({
     align: 'center',
     margin: theme.spacing.unit,
   },
+  doNotDisplay: {
+    display: 'none',
+  }
 });
 
 class toDoList extends React.Component {
@@ -57,33 +61,49 @@ class toDoList extends React.Component {
     this.data = topMenuJSON;
     this.state = {
       text: '',
-      checked: [0],
-      toDo: ['play Games', 'Do Stuff'],
+      checked: '',
+      do: ['play Games', 'Do Stuff'],
     };
   }
 
-  componentDidMount(){
-
+  deleteItem = (value, index)=> () => {
+    console.log(value,index);
+    const { dispatch } = this.props;
+    dispatch({
+      type: actionConstants.TODO_DELETE_REQUEST,
+      payload: { toDo: {
+        key: value,
+      }
+      },
+    });
   }
 
   handleToggle = value => () => {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+    const { dispatch, toDo } = this.props;
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
+    if(toDo[value].state === 'active'){
+      dispatch({
+        type: actionConstants.TODO_ALTER_STATE_REQUEST,
+        payload: { toDo: {
+          key: value,
+          state: 'unactive',
+        }
+        },
+      });
     }
-
-    this.setState({
-      checked: newChecked,
-    });
+    else{
+      dispatch({
+        type: actionConstants.TODO_ALTER_STATE_REQUEST,
+        payload: { toDo: {
+          key: value,
+          state: 'active',
+        }
+        },
+      });
+    }
   };
 
   handleChange = text => event => {
-
     this.setState({
       [text]: event.target.value,
     });
@@ -93,13 +113,15 @@ class toDoList extends React.Component {
     const { dispatch } = this.props;
     dispatch({
       type: actionConstants.TODO_TODO_REQUEST,
-      payload: { toDo: ['text'] },
+      payload: { toDo: {
+        text: this.state.text,
+        state: 'active',
+      }
+      },
     });
-    console.log(this.state.text);
-    this.setState (prevState => ({
-      toDo: [...prevState.toDo, this.state.text],
+    this.setState({
       text: '',
-    }));
+    });
   };
 
   handleKeyPress=(e) => {
@@ -108,8 +130,9 @@ class toDoList extends React.Component {
     }
   }
 
+
   render() {
-    const { classes } = this.props;
+    const { classes, toDo } = this.props;
     return (
       <div >
         <TopMenu/>
@@ -122,29 +145,30 @@ class toDoList extends React.Component {
           onChange={this.handleChange('text')}
           onKeyPress={this.handleKeyPress}
           margin="normal"
+
         />
         <Button onClick={this.handleClick} variant="contained" color="primary" className={classes.button}>
           Primary
         </Button>
         <List>
-          {this.state.toDo.map(value => (
+          {Object.keys(toDo).map((value, index) => (
             <ListItem
               key={value}
               role={undefined}
               dense
               button
               onClick={this.handleToggle(value)}
-              className={classes.listItem}
+              style={{display: toDo[value].text ? '' : 'none' }}
             >
               <Checkbox
-                checked={this.state.checked.indexOf(value) !== -1}
-                tabIndex={-1}
+                checked={toDo[value].state !== 'active'}
+                tabIndex={index}
                 disableRipple
               />
               <ListItemText primary={`${value}`} />
               <ListItemSecondaryAction>
                 <IconButton aria-label="Comments">
-                  <CommentIcon />
+                  <DeleteOutlinedIcon style={{display: toDo[value].text ? '' : 'none' }} onClick={this.deleteItem(value)} />
                 </IconButton>
               </ListItemSecondaryAction>
             </ListItem>
@@ -157,12 +181,14 @@ class toDoList extends React.Component {
 
 const mapStateToProps = state => ({
   text: state.toDoList.text,
+  toDo: state.toDoList.toDo,
 });
 
 toDoList.propTypes = {
   classes: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
   text: PropTypes.string,
+  toDo: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(toDoList));

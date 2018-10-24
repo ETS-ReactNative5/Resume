@@ -11,7 +11,8 @@ class Home extends Component {
       <div className="App">
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <TopMenu/>
+            <TopMenu value={0}/>
+            <h1> Greatings, Welcome to my  site! My name is tsvetomir i am a frontend programmer, specialising in react and redux </h1>
             <p>Home page</p>
           </Grid>
         </Grid>
