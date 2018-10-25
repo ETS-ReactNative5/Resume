@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch as RouterSwitch } from 'react-router-dom';
-import Home from '../Containers/Home';
-import Projects from '../Containers/Projects';
+import Home from '../Containers/Home/Home';
+import Projects from '../Containers/Projects/Projects';
 import ToDoList from '../Components/ToDoList/ToDoList';
+import DragAndDrop from '../Components/DragAndDrop/DragAndDrop';
 
 
 /**
@@ -17,6 +18,7 @@ export const AppRoutes = () => (
       <Route exact path="/Home" component={Home} />
       <Route exact path="/Projects" component={Projects} />
       <Route exact path="/Projects/ToDoList" component={ToDoList} />
+      <Route exact path="/Projects/Drag&Drop" component={DragAndDrop} />
     </RouterSwitch>
   </BrowserRouter>
 );

@@ -44,11 +44,12 @@ const styles = theme => ({
     align: 'center',
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: '77%',
   },
   button: {
     align: 'center',
     margin: theme.spacing.unit,
+    width: '20%',
   },
   doNotDisplay: {
     display: 'none',
@@ -64,6 +65,18 @@ class toDoList extends React.Component {
       checked: '',
       do: ['play Games', 'Do Stuff'],
     };
+  }
+
+  componentDidMount(){
+    const { dispatch } = this.props;
+    dispatch({
+      type: actionConstants.TODO_TODO_REQUEST,
+      payload: { toDo: {
+        text: 'Press F12 and check the Redux state!',
+        state: 'active',
+      }
+      },
+    });
   }
 
   deleteItem = (value, index)=> () => {
@@ -134,7 +147,7 @@ class toDoList extends React.Component {
   render() {
     const { classes, toDo } = this.props;
     return (
-      <div >
+      <div onKeyPress={this.handleKeyPress}>
         <TopMenu/>
         <h1 align="center" className={classes.headline}>ToDo List</h1>
         <TextField
@@ -148,7 +161,7 @@ class toDoList extends React.Component {
 
         />
         <Button onClick={this.handleClick} variant="contained" color="primary" className={classes.button}>
-          Primary
+          Add
         </Button>
         <List>
           {Object.keys(toDo).map((value, index) => (
