@@ -45,29 +45,27 @@ class TopMenu extends React.Component {
     render() {
       const {classes } = this.props;
       return (
-        <div className={classes.root}>
-          <AppBar position="static">
-            <Tabs
-              centered
-              classes={{ root: classes.tabRoot, }}
-              value={this.props.value}
-              onClick={this.handleChange}>
-              {this.data.TopMenu.map(item => (
-                // eslint-disable-next-line react/jsx-key
-                <Route render={({ history}) => (
-                  // Todo: Make the Projects be a dropdown menu
-                  <Tab
-                    onClick={() => { history.push(`/${item.text}`); }}
-                    key={item.id}
-                    id={item.id}
-                    label={item.text}
-                    classes={{ root: classes.tabRoot }}
-                  />
-                )} />
-              ))}
-            </Tabs>
-          </AppBar>
-        </div>
+        <AppBar position="static">
+          <Tabs
+            centered
+            classes={{ root: classes.tabRoot, }}
+            value={this.props.value}
+            onClick={this.handleChange}>
+            {this.data.TopMenu.map(item => (
+              // eslint-disable-next-line react/jsx-key
+              <Route render={({ history}) => (
+                // Todo: Make the Projects be a dropdown menu
+                <Tab
+                  onClick={() => { history.push(`/${item.text}`); }}
+                  key={item.id}
+                  id={item.id}
+                  label={item.text}
+                  classes={{ root: classes.tabRoot }}
+                />
+              )} />
+            ))}
+          </Tabs>
+        </AppBar>
       );
     }
 }
