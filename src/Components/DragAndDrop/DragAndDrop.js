@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import TopMenu from '../TopMenu/topMenu';
 import List from './List';
 import {withStyles} from '@material-ui/core/styles/index';
-import connect from 'react-redux/es/connect/connect';
 
 const styles = () => ({
   header: {
@@ -28,7 +27,7 @@ class DragAndDrop extends React.Component {
     return (
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <TopMenu/>
+          <TopMenu value={2}/>
           <h1 align="center" className={classes.header}>Drag And Drop</h1>
         </Grid>
         <Grid className={classes.grid} item xs={12}>
@@ -38,10 +37,6 @@ class DragAndDrop extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  value: state.topMenu.value,
-});
-
 
 DragAndDrop.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -50,4 +45,4 @@ DragAndDrop.propTypes = {
   toDo: PropTypes.object,
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(DragAndDrop));
+export default (withStyles(styles)(DragAndDrop));

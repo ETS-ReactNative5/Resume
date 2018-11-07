@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TopMenu from '../../Components/TopMenu/topMenu';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { withStyles } from '@material-ui/core/styles';
@@ -82,7 +82,7 @@ class About extends Component {
     const { classes } = this.props;
     return (
       <div style={{backgroundSize: 'cover', margin: '-0.55%'}}>
-        <TopMenu/>
+        <TopMenu value={1}/>
         <header>
           <h1 className={classes.header}>
             About Me
@@ -129,13 +129,6 @@ About.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-
-// eslint-disable-next-line no-unused-vars
-const mapStateToProps = state => ({
-  value: state.topMenu.value,
-  topMenu: state.topMenu,
-});
-
-const ConnectedApp = connect(mapStateToProps)(withStyles(styles)(About));
+const ConnectedApp = (withStyles(styles)(About));
 
 export default root;

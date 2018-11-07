@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import topMenuJSON from '../../JSONfiles/topMenuJSON';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import { Route } from 'react-router-dom';
 import TopMenu from '../TopMenu/topMenu';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -19,7 +15,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
-import CommentIcon from '@material-ui/icons/Comment';
 
 function TabContainer(props) {
   return (
@@ -148,7 +143,7 @@ class toDoList extends React.Component {
     const { classes, toDo } = this.props;
     return (
       <div onKeyPress={this.handleKeyPress}>
-        <TopMenu/>
+        <TopMenu value={2}/>
         <h1 align="center" className={classes.headline}>ToDo List</h1>
         <TextField
           id="standard-name"

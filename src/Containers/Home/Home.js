@@ -14,14 +14,17 @@ const styles = theme => ({
   input: {
     display: 'none',
   },
+  background: {
+    backgroundImage: `url(${Image})`, backgroundSize: 'cover', margin: '-0.55%', minHeight: '100%'
+  },
 });
 
 class Home extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.background} style={{ backgroundImage: `url(${Image})`, backgroundSize: 'cover', margin: '-0.55%', minHeight: '100%'}}>
-        <TopMenu/>
+      <div className={classes.background}>
+        <TopMenu value={0}/>
         <br/>
         <br/>
         <br/>

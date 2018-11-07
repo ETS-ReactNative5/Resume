@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopMenu from '../../Components/TopMenu/topMenu';
 import Grid from '@material-ui/core/Grid';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { Route } from 'react-router-dom';
@@ -17,7 +17,7 @@ class Home extends Component {
   render() {
     return (
       <div style={{backgroundSize: 'cover', margin: '-0.55%'}} >
-        <TopMenu/>
+        <TopMenu value={2}/>
         <Grid alignContent={'center'} container spacing={24}>
           <Grid item xs={12}>
             <h1 align="center" style={{fontSize: '500%'}}> Projects </h1>
@@ -44,12 +44,6 @@ const root = () => (
   </Provider>
 );
 
-// eslint-disable-next-line no-unused-vars
-const mapStateToProps = state => ({
-  value: state.topMenu.value,
-  topMenu: state.topMenu,
-});
-
-const ConnectedApp = connect(mapStateToProps)(Home);
+const ConnectedApp = (Home);
 
 export default root;

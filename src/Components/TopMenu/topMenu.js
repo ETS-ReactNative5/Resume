@@ -7,8 +7,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { Route } from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
-import {topMenuConstants} from '../../types/topMenuConstants';
 
 function TabContainer(props) {
   return (
@@ -42,45 +40,6 @@ class TopMenu extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-    console.log(event.target.innerText);
-    const { dispatch, topMenu } = this.props;
-    console.log(topMenu);
-
-    if(event.target.innerText === 'HOME'){
-      dispatch({
-        type: topMenuConstants.TOP_MENU_VALUE_REQUEST,
-        payload: {
-          value: 0,
-        },
-      });
-    }
-    if(event.target.innerText === 'ABOUT'){
-      dispatch({
-        type: topMenuConstants.TOP_MENU_VALUE_REQUEST,
-        payload: {
-          value: 1,
-        },
-      });
-    }
-    if(event.target.innerText === 'PROJECTS'){
-      dispatch({
-        type: topMenuConstants.TOP_MENU_VALUE_REQUEST,
-        payload: {
-          value: 2,
-        },
-      });
-    }
-    if(event.target.innerText === 'CONTACT'){
-      dispatch({
-        type: topMenuConstants.TOP_MENU_VALUE_REQUEST,
-        payload: {
-          value: 3,
-        },
-      });
-    }
-  };
-
   render() {
     const {classes, value } = this.props;
     return (
@@ -91,11 +50,9 @@ class TopMenu extends React.Component {
           classes={{ root: classes.tabRoot, }}
         >
           {this.data.TopMenu.map(item => (
-            // eslint-disable-next-line react/jsx-key
             <Route key={item.id + 1} render={({ history}) => (
               <Tab
-                onClick={this.handleChange}
-                onChange={() => { history.push(`/${item.text}`); }}
+                onClick={() => { history.push(`/${item.text}`); }}
                 key={item.id}
                 id={item.id}
                 label={item.text}
@@ -109,11 +66,6 @@ class TopMenu extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  value: state.topMenu.value,
-  topMenu: state.topMenu,
-});
-
 TopMenu.propTypes = {
   classes: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
@@ -121,4 +73,4 @@ TopMenu.propTypes = {
   topMenu: PropTypes.object,
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(TopMenu));
+export default (withStyles(styles)(TopMenu));
