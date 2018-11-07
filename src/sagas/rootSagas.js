@@ -5,8 +5,6 @@ import sagaTopMenu from '../Components/TopMenu/ReduxTopMenu/topMenuSaga';
 export default function* rootSaga() {
   yield all([
     fork(sagaToDoList),
-  ]);
-  yield all([
     fork(sagaTopMenu),
   ]);
 }

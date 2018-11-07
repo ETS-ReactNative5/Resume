@@ -1,13 +1,9 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     maxWidth: '99%',
     border: '3px solid lightgrey',

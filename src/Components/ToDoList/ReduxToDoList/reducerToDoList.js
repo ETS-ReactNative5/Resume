@@ -23,6 +23,7 @@ const walkingReducer = (state = initialState, action) => {
   case actionConstants.TODO_DELETE_SUCCESS:
     return deleteTodoReducer(state, action);
   default:
+    console.log("todo reducer");
     return state;
   }
 };

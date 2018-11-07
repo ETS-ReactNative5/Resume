@@ -4,8 +4,8 @@ import topMenuReducer from '../Components/TopMenu/ReduxTopMenu/topMenuReducer';
 
 
 export const appReducer = combineReducers({
-  toDoList: reducerToDoList,
   topMenu: topMenuReducer,
+  toDoList: reducerToDoList,
 });
 
 export default appReducer;

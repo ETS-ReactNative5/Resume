@@ -3,6 +3,10 @@ export const updateObject = (oldObj, updatedProps) => ({
   ...updatedProps,
 });
 
+// export const updateValue = (oldObj, updatedProps) => ({
+//   ...oldObj
+// });
+
 export const updateArray = (oldObj, filterData, text) => ({
   ...oldObj,
   toDo: {

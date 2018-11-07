@@ -1,6 +1,6 @@
-import { actionConstants } from '../../../types/actionConstants';
+import { topMenuConstants } from '../../../types/topMenuConstants';
 
-export const changeValue = action =>({
-  type: actionConstants.TOP_MENU_VALUE_SUCCESS,
+export const changeValueAction = action =>({
+  type: topMenuConstants.TOP_MENU_VALUE_SUCCESS,
   value: action.value,
 });
