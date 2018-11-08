@@ -5,6 +5,11 @@ import configureStore from './store/store';
 import { history as History } from './utils/history';
 
 class App extends Component {
+
+  componentDidMount(){
+    document.title = 'Tsvetomir Batinov';
+  }
+
   render() {
     return (
       <div className="App">
