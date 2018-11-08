@@ -5,7 +5,9 @@ import { connect, Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import Image from './Image/homeImage.jpg';
+import phoneImage from './Image/phone.jpg';
 import {withStyles} from '@material-ui/core/styles/index';
+
 
 const styles = theme => ({
   button: {
@@ -15,53 +17,76 @@ const styles = theme => ({
     display: 'none',
   },
   background: {
-    backgroundImage: `url(${Image})`, backgroundSize: 'cover', margin: '-0.55%', minHeight: '100%'
+    backgroundImage: `url(${Image})`, backgroundSize: 'cover', margin: '-0.55%', minHeight: '100%',
+
+  },
+  backgroundSmall: {
+    backgroundImage: `url(${phoneImage})`,
+    margin: '-2.55%',
+    height: '50%',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
 });
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      width: window.innerWidth
+    };
+  }
+
+  phoneClick = () => {
+    window.location.replace('https://github.com/Sclipper/Resume');
+  };
+
   render() {
     const { classes } = this.props;
+    const { width } = this.state;
     return (
-      <div className={classes.background}>
+      <div  className = {width > 1000? classes.background : classes.backgroundSmall}>
         <TopMenu value={0}/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <div onClick={width <1000? this.phoneClick : false}>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
       </div>
     );
   }

@@ -15,11 +15,22 @@ const styles = theme => ({
     paddingTop: '3%',
     paddingLeft: '13%',
   },
+  pictureOfMeSmall: {
+    width: '82%',
+    height: '281px',
+    paddingLeft: '8%',
+  },
   block: {
     float: 'right',
     width: '21%',
     paddingTop: '2%',
     paddingRight: '19%',
+  },
+  blockSmall: {
+    width: '79%',
+    paddingTop: '2%',
+    paddingRight: '19%',
+    fontSize: '15px',
   },
   header: {
     textAlign: 'center',
@@ -77,9 +88,14 @@ const colors = {
 class About extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      width: window.innerWidth
+    };
   }
+
   render() {
     const { classes } = this.props;
+    const { width } = this.state;
     return (
       <div style={{backgroundSize: 'cover', margin: '-0.55%'}}>
         <TopMenu value={1}/>
@@ -89,8 +105,8 @@ class About extends Component {
           </h1>
         </header>
         <div>
-          <img className={classes.pictureOfMe} src={Pictureofme} alt=""/>
-          <blockquote className={classes.block} cite="http://www.worldwildlife.org/who/index.html">
+          <img className={width > 1000? classes.pictureOfMe : classes.pictureOfMeSmall} src={Pictureofme} alt=""/>
+          <blockquote className={width > 1000? classes.block : classes.blockSmall} cite="http://www.worldwildlife.org/who/index.html">
           For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
           For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
           For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
