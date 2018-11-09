@@ -6,6 +6,7 @@ import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { Route } from 'react-router-dom';
 import Todolist from './Images/todolist.jpg';
+import DragNDrop from './Images/dragNdrop.png';
 import {withStyles} from '@material-ui/core/styles/index';
 
 const styles = theme => ({
@@ -73,7 +74,7 @@ class Projects extends Component {
           )} />
           <Route render={({ history }) => (
             <div style={width > 1000? {paddingRight: '32px'} : {paddingLeft: '31px'}}>
-              <img onClick={() => { history.push('/Projects/Drag&Drop'); }} src={Todolist} alt="todolist" className={width > 1000? classes.imageRight : classes.imageSmall}/>
+              <img onClick={() => { history.push('/Projects/Drag&Drop'); }} src={DragNDrop} alt="todolist" className={width > 1000? classes.imageRight : classes.imageSmall}/>
             </div>
           )} />
         </div>

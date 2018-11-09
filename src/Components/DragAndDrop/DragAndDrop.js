@@ -22,6 +22,10 @@ class DragAndDrop extends React.Component {
     };
   }
 
+  componentDidMount(){
+    alert('Please note that Drag and Drop is still under construction. You are free to check the basic functionality');
+  }
+
   render() {
     const { classes } = this.props;
     return (

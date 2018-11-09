@@ -10,27 +10,27 @@ import SkillBar from 'react-skillbars';
 
 const styles = theme => ({
   pictureOfMe: {
-    width: '28%',
-    height: '356px',
+    height: '436px',
     paddingTop: '3%',
-    paddingLeft: '13%',
+    paddingLeft: '26%',
   },
   pictureOfMeSmall: {
-    width: '82%',
-    height: '281px',
-    paddingLeft: '8%',
+    width: '65%',
+    height: '307px',
+    paddingLeft: '17%',
   },
   block: {
     float: 'right',
     width: '21%',
     paddingTop: '2%',
-    paddingRight: '19%',
+    paddingRight: '21%',
+    fontSize: '24px'
   },
   blockSmall: {
-    width: '79%',
+    width: '63%%',
     paddingTop: '2%',
-    paddingRight: '19%',
-    fontSize: '15px',
+    fontSize: '18px',
+    textAlign: 'center',
   },
   header: {
     textAlign: 'center',
@@ -89,50 +89,56 @@ class About extends Component {
   constructor(props){
     super(props);
     this.state = {
-      width: window.innerWidth
+      width: window.innerWidth,
+      age : this.getAge(),
     };
   }
 
-  render() {
-    const { classes } = this.props;
-    const { width } = this.state;
-    return (
-      <div style={{backgroundSize: 'cover', margin: '-0.55%'}}>
-        <TopMenu value={1}/>
-        <header>
-          <h1 className={classes.header}>
+    getAge = () => {
+      var today = new Date();
+      var birthDate = '1994';
+      var age = today.getFullYear() - birthDate;
+      return age;
+    }
+
+    render() {
+      const { classes } = this.props;
+      const { width, age } = this.state;
+      return (
+        <div style={{backgroundSize: 'cover', margin: '-0.55%'}}>
+          <TopMenu value={1}/>
+          <header>
+            <h1 className={classes.header}>
             About Me
-          </h1>
-        </header>
-        <div>
-          <img className={width > 1000? classes.pictureOfMe : classes.pictureOfMeSmall} src={Pictureofme} alt=""/>
-          <blockquote className={width > 1000? classes.block : classes.blockSmall} cite="http://www.worldwildlife.org/who/index.html">
-          For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
-          For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
-          For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
-          For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
-          </blockquote>
-        </div>
-        <div>
-          <h1 className={classes.header}> Skills </h1>
-        </div>
-        <div className={classes.skillBar}>
-          <h1>
+            </h1>
+          </header>
+          <div>
+            <img className={width > 1000? classes.pictureOfMe : classes.pictureOfMeSmall} src={Pictureofme} alt=""/>
+            <blockquote className={width > 1000? classes.block : classes.blockSmall} cite="http://www.worldwildlife.org/who/index.html">
+              Hello, my name is Tsvetomir Batinov and i am {age} years old. For the past 2 years i have spend my days and nights
+              learning programming. This page will be my humble beginning in showcasing my portofolio and getting to know me a bit better.
+            </blockquote>
+          </div>
+          <div>
+            <h1 className={classes.header}> Skills </h1>
+          </div>
+          <div className={classes.skillBar}>
+            <h1>
             Frontend
-          </h1>
-          <SkillBar  skills={skillsFront} colors={colors} height={25}/>
+            </h1>
+            <SkillBar  skills={skillsFront} colors={colors} height={25}/>
 
-        </div>
-        <div style={{paddingBottom: '20%'}} className={classes.skillBar}>
-          <h1>
+          </div>
+          <div style={{paddingBottom: '20%'}} className={classes.skillBar}>
+            <h1>
             Backend
-          </h1>
-          <SkillBar  skills={skillsBack} colors={colors} height={25}/>
+            </h1>
+            <SkillBar  skills={skillsBack} colors={colors} height={25}/>
 
+          </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 }
 
 const root = () => (
