@@ -4,10 +4,10 @@ import TopMenu from '../../Components/TopMenu/topMenu';
 import { connect, Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
-import Image from './Image/homeImage.jpg';
+import Image from './Image/image.jpg';
 import phoneImage from './Image/phone.jpg';
 import {withStyles} from '@material-ui/core/styles/index';
-
+import { GreetingsAnimation, NameAnimation, PositionAnimation, TextAnimation } from './textAnimations/GreetingsAnimation';
 
 const styles = theme => ({
   button: {
@@ -49,34 +49,10 @@ class Home extends Component {
       <div  className = {width > 1000? classes.background : classes.backgroundSmall}>
         <TopMenu value={0}/>
         <div onClick={width <1000? this.phoneClick : false}>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+          <NameAnimation/>
+          <PositionAnimation/>
+          <GreetingsAnimation/>
+          <TextAnimation/>
           <br/>
           <br/>
           <br/>
