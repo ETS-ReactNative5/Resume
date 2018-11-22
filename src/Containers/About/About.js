@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TopMenu from '../../Components/TopMenu/topMenu';
+import TopMenu from '../../Components/TopMenu/TopMenu';
 import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Pictureofme from '../Home/Image/pictureofme.jpg';
 import SkillBar from 'react-skillbars';
 
-const styles = theme => ({
+const styles = () => ({
   pictureOfMe: {
     height: '436px',
     paddingTop: '3%',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import TopMenu from '../TopMenu/topMenu';
+import TopMenu from '../TopMenu/TopMenu';
 import List from './List';
 import {withStyles} from '@material-ui/core/styles/index';
 

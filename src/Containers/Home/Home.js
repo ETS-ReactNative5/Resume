@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TopMenu from '../../Components/TopMenu/topMenu';
+import TopMenu from '../../Components/TopMenu/TopMenu';
 import { connect, Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
@@ -30,7 +30,7 @@ const styles = theme => ({
   },
 });
 
-class Home extends Component {
+export class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -75,7 +75,7 @@ const root = () => (
 );
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
   windowWidth: PropTypes.number,
   windowHeight: PropTypes.number,
 };

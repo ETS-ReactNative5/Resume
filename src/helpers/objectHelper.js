@@ -3,10 +3,6 @@ export const updateObject = (oldObj, updatedProps) => ({
   ...updatedProps,
 });
 
-// export const updateValue = (oldObj, updatedProps) => ({
-//   ...oldObj
-// });
-
 export const updateArray = (oldObj, filterData, text) => ({
   ...oldObj,
   toDo: {
@@ -18,12 +14,12 @@ export const updateArray = (oldObj, filterData, text) => ({
 });
 
 export const updateStateOfTheArray = (oldObj, filterData, key) => ({
-  ...oldObj, // copy state
+  ...oldObj,
   toDo: {
-    ...oldObj.toDo, // copy houses
-    [key]: {  // update one specific house (using Computed Property syntax)
-      ...oldObj.toDo[key],  // copy that specific house's properties
-      state: filterData[key].state   // update its `points` property
+    ...oldObj.toDo,
+    [key]: {
+      ...oldObj.toDo[key],
+      state: filterData[key].state
     }
   }
 });

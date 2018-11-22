@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TopMenu from '../../Components/TopMenu/topMenu';
+import TopMenu from '../../Components/TopMenu/TopMenu';
 import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
@@ -9,7 +9,7 @@ import Todolist from './Images/todolist.jpg';
 import DragNDrop from './Images/dragNdrop.png';
 import {withStyles} from '@material-ui/core/styles/index';
 
-const styles = theme => ({
+const styles = () => ({
   background: {
     backgroundSize: 'cover',
     margin: '-0.55%',
