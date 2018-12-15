@@ -10,9 +10,9 @@ import { GreetingsAnimation, NameAnimation, PositionAnimation, TextAnimation } f
 
 const styles = () => ({
   background: {
-    backgroundImage: `url(${Image})`,   width: '100%',
-    height: 'auto',
-
+    backgroundImage: `url(${Image})`,
+    width: '100%',
+    height: '49vw',
   },
 });
 
@@ -34,15 +34,6 @@ export class Home extends Component {
           <PositionAnimation/>
           <GreetingsAnimation/>
           <TextAnimation/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
         </div>
       </div>
     );

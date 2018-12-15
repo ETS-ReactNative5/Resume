@@ -31,22 +31,14 @@ const styles = () => ({
       fontSize: '2vw',
     },
   },
-
-  blockSmall: {
-    width: '63%%',
-    paddingTop: '2%',
-    fontSize: '18px',
-    textAlign: 'center',
-  },
   header: {
     textAlign: 'center',
     marginTop: '4%',
     fontSize: '500%',
   },
   skillBar: {
-    width: '48%',
-    display: 'inline-block',
-    margin: '1%',
+    margin: '0 auto',
+    width: '80%',
   }
 });
 

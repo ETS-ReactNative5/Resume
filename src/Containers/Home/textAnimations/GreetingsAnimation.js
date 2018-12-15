@@ -44,7 +44,7 @@ export const GreetingsAnimation = () => {
   return (
     <StyleRoot>
       <div className="test" style={styles.rollIn3}>
-        <h1 style={{textAlign: 'center', marginTop: '152px', fontFamily: 'sans-serif', color: 'white'}} className='text'>Welcome to my web site! </h1>
+        <h1 style={{textAlign: 'center', marginTop: '152px', fontFamily: 'sans-serif', color: 'white'}} className='text'>Welcome to my website! </h1>
       </div>
     </StyleRoot>
   );
@@ -54,7 +54,7 @@ export const TextAnimation = () => {
   return (
     <StyleRoot>
       <div className="test" style={styles.rollIn4}>
-        <h1 style={{textAlign: 'center', fontFamily: 'sans-serif',marginBottom: '33px', color: 'white'}} className='text'>Please take a second to go trough all the pages and don't forget to open the developer tools for examples of my code</h1>
+        <h1 style={{textAlign: 'center', fontFamily: 'sans-serif', color: 'white'}} className='text'>Please take a second to go trough all the pages and don't forget to open the developer tools for examples of my code</h1>
       </div>
     </StyleRoot>
   );

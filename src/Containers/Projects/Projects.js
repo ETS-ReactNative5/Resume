@@ -10,46 +10,44 @@ import DragNDrop from './Images/dragNdrop.png';
 import {withStyles} from '@material-ui/core/styles/index';
 
 const styles = () => ({
-  background: {
-    backgroundSize: 'cover',
-    margin: '-0.55%',
-    minHeight: '100%',
-  },
-  backgroundSmall: {
-    margin: '-2.55%',
-    height: '50%',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  },
   imageLeft: {
-    cursor: 'pointer',
-    width: '40%',
-    height: '152px',
-    padding: '3%',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-    float: 'left',
+    '@media screen and (min-width: 601px)': {
+      cursor: 'pointer',
+      margin: '0 auto',
+      marginLeft: '10px',
+      width: '45%',
+      border: 'solid 5px black',
+      display: 'inline-block',
+      height: '17vw',
+      backgroundColor: 'orange'
+    },
+    '@media screen and (max-width: 600px)': {
+      border: 'solid 5px black',
+      width: '95%',
+      height: '37vw',
+      marginLeft: '3px',
+    },
   },
-  imageSmall: {
-    width: '82%',
-    padding: '3%',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-  },
+
   imageRight: {
-    cursor: 'pointer',
-    width: '40%',
-    height: '152px',
-    padding: '3%',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-    float: 'right',
-    paddingRight: '32px',
+    '@media screen and (min-width: 601px)': {
+      cursor: 'pointer',
+      margin: '0 auto',
+      marginRight: '10px',
+      width: '45%',
+      border: 'solid 5px black',
+      display: 'inline-block',
+      height: '17vw',
+      float: 'right',
+    },
+    '@media screen and (max-width: 600px)': {
+      border: 'solid 5px black',
+      width: '95%',
+      height: '37vw',
+      marginLeft: '3px',
+    },
   },
-
 });
-
 
 class Projects extends Component {
   constructor(props){
@@ -61,21 +59,16 @@ class Projects extends Component {
   }
   render() {
     const { classes } = this.props;
-    const { width } = this.state;
     return (
-      <div className = {width > 1000? classes.background : classes.backgroundSmall} >
+      <div>
         <TopMenu value={2}/>
         <h1 align="center" style={{fontSize: '500%'}}> Projects </h1>
         <div>
           <Route render={({ history }) => (
-            <div style={{paddingLeft: '31px'}}>
-              <img onClick={() => { history.push('/Projects/ToDoList'); }} src={Todolist} alt="todolist" className={width > 1000? classes.imageLeft : classes.imageSmall}/>
-            </div>
+            <img onClick={() => { history.push('/Projects/ToDoList'); }} src={Todolist} alt="todolist" className={classes.imageLeft}/>
           )} />
           <Route render={({ history }) => (
-            <div style={width > 1000? {paddingRight: '32px'} : {paddingLeft: '31px'}}>
-              <img onClick={() => { history.push('/Projects/Drag&Drop'); }} src={DragNDrop} alt="todolist" className={width > 1000? classes.imageRight : classes.imageSmall}/>
-            </div>
+            <img onClick={() => { history.push('/Projects/Drag&Drop'); }} src={DragNDrop} alt="todolist" className={classes.imageRight}/>
           )} />
         </div>
       </div>
