@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { withStyles } from '@material-ui/core/styles';
-import Pictureofme from './pictureMe.jpg';
+import Pictureme from './pictureMe.jpg';
 import SkillBar from 'react-skillbars';
 
 const styles = () => ({
@@ -119,7 +119,7 @@ class About extends Component {
             </h1>
           </header>
           <div>
-            <img className={classes.pictureOfMe} src={Pictureofme} alt=""/>
+            <img className={classes.pictureOfMe} src={Pictureme} alt=""/>
             <blockquote className={classes.block} cite="http://www.worldwildlife.org/who/index.html">
               Hello, my name is Tsvetomir Batinov and i am {age} years old. For the past 2 years i have spend my days and nights
               learning programming. This page will be my humble beginning in showcasing my portofolio and getting to know me a bit better.
