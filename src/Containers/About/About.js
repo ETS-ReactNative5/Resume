@@ -5,27 +5,33 @@ import { Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { withStyles } from '@material-ui/core/styles';
-import Pictureofme from '../Home/Image/pictureofme.jpg';
+import Pictureofme from './pictureMe.jpg';
 import SkillBar from 'react-skillbars';
 
 const styles = () => ({
   pictureOfMe: {
-    height: '436px',
-    paddingTop: '3%',
-    paddingLeft: '26%',
-  },
-  pictureOfMeSmall: {
-    width: '65%',
-    height: '307px',
-    paddingLeft: '17%',
+    '@media screen and (min-width: 601px)': {
+      width: '40%',
+      height: 'auto',
+      marginLeft: '8%',
+    },
+    '@media screen and (max-width: 600px)': {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '70%',
+    },
   },
   block: {
-    float: 'right',
-    width: '21%',
-    paddingTop: '2%',
-    paddingRight: '21%',
-    fontSize: '24px'
+    '@media screen and (min-width: 601px)': {
+      float: 'right',
+      width: '21%',
+      paddingTop: '2%',
+      paddingRight: '21%',
+      fontSize: '2vw',
+    },
   },
+
   blockSmall: {
     width: '63%%',
     paddingTop: '2%',
@@ -103,9 +109,9 @@ class About extends Component {
 
     render() {
       const { classes } = this.props;
-      const { width, age } = this.state;
+      const { age } = this.state;
       return (
-        <div style={{backgroundSize: 'cover', margin: '-0.55%'}}>
+        <div>
           <TopMenu value={1}/>
           <header>
             <h1 className={classes.header}>
@@ -113,8 +119,8 @@ class About extends Component {
             </h1>
           </header>
           <div>
-            <img className={width > 1000? classes.pictureOfMe : classes.pictureOfMeSmall} src={Pictureofme} alt=""/>
-            <blockquote className={width > 1000? classes.block : classes.blockSmall} cite="http://www.worldwildlife.org/who/index.html">
+            <img className={classes.pictureOfMe} src={Pictureofme} alt=""/>
+            <blockquote className={classes.block} cite="http://www.worldwildlife.org/who/index.html">
               Hello, my name is Tsvetomir Batinov and i am {age} years old. For the past 2 years i have spend my days and nights
               learning programming. This page will be my humble beginning in showcasing my portofolio and getting to know me a bit better.
             </blockquote>

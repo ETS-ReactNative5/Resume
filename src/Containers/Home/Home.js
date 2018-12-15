@@ -5,28 +5,14 @@ import { connect, Provider } from 'react-redux';
 import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import Image from './Image/image.jpg';
-import phoneImage from './Image/phone.jpg';
 import {withStyles} from '@material-ui/core/styles/index';
 import { GreetingsAnimation, NameAnimation, PositionAnimation, TextAnimation } from './textAnimations/GreetingsAnimation';
 
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
-  },
+const styles = () => ({
   background: {
-    backgroundImage: `url(${Image})`, backgroundSize: 'cover', margin: '-0.55%', minHeight: '100%',
+    backgroundImage: `url(${Image})`,   width: '100%',
+    height: 'auto',
 
-  },
-  backgroundSmall: {
-    backgroundImage: `url(${phoneImage})`,
-    margin: '-2.55%',
-    height: '50%',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
   },
 });
 
@@ -38,17 +24,12 @@ export class Home extends Component {
     };
   }
 
-  phoneClick = () => {
-    window.location.replace('https://github.com/Sclipper/Resume');
-  };
-
   render() {
     const { classes } = this.props;
-    const { width } = this.state;
     return (
-      <div  className = {width > 1000? classes.background : classes.backgroundSmall}>
+      <div  className = {classes.background}>
         <TopMenu value={0}/>
-        <div onClick={width <1000? this.phoneClick : false}>
+        <div>
           <NameAnimation/>
           <PositionAnimation/>
           <GreetingsAnimation/>

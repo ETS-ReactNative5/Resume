@@ -12,7 +12,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div style={{margin: '0px'}}>
         <AppRoutes/>
       </div>
     );
