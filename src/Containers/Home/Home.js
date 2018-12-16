@@ -10,9 +10,15 @@ import { GreetingsAnimation, NameAnimation, PositionAnimation, TextAnimation } f
 
 const styles = () => ({
   background: {
-    backgroundImage: `url(${Image})`,
-    width: '100%',
-    height: '49vw',
+    '@media screen and (max-width: 600px)': {
+      backgroundImage: `url(${Image})`,
+      width: '100%',
+    },
+    '@media screen and (min-width: 601px)': {
+      backgroundImage: `url(${Image})`,
+      width: '100%',
+      height: '49vw',
+    },
   },
 });
 

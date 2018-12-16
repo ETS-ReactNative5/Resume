@@ -54,7 +54,7 @@ export const TextAnimation = () => {
   return (
     <StyleRoot>
       <div className="test" style={styles.rollIn4}>
-        <h1 style={{textAlign: 'center', fontFamily: 'sans-serif', color: 'white'}} className='text'>Please take a second to go trough all the pages and don't forget to open the developer tools for examples of my code</h1>
+        <h1 style={{textAlign: 'center', fontFamily: 'sans-serif', marginBottom: '20px',marginTop: '71px', color: 'white'}} className='text'>Please take a second to go trough all the pages and don't forget to open the developer tools for examples of my code</h1>
       </div>
     </StyleRoot>
   );

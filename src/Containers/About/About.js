@@ -11,7 +11,7 @@ import SkillBar from 'react-skillbars';
 const styles = () => ({
   pictureOfMe: {
     '@media screen and (min-width: 601px)': {
-      width: '40%',
+      width: '35%',
       height: 'auto',
       marginLeft: '8%',
     },
@@ -27,7 +27,7 @@ const styles = () => ({
       float: 'right',
       width: '21%',
       paddingTop: '2%',
-      paddingRight: '21%',
+      paddingRight: '15%',
       fontSize: '2vw',
     },
   },
@@ -38,7 +38,7 @@ const styles = () => ({
   },
   skillBar: {
     margin: '0 auto',
-    width: '80%',
+    width: '82%',
   }
 });
 
