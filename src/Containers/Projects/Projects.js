@@ -7,6 +7,7 @@ import { history as History } from '../../utils/history';
 import { Route } from 'react-router-dom';
 import Todolist from './Images/todolist.jpg';
 import DragNDrop from './Images/dragNdrop.png';
+import Chaos from './Images/chaos.png';
 import {withStyles} from '@material-ui/core/styles/index';
 
 const styles = () => ({
@@ -47,6 +48,25 @@ const styles = () => ({
       marginLeft: '3px',
     },
   },
+  chaos: {
+    '@media screen and (min-width: 601px)': {
+      cursor: 'pointer',
+      margin: '0 auto',
+      marginLeft: '10px',
+      width: '45%',
+      border: 'solid 5px black',
+      display: 'inline-block',
+      height: '17vw',
+      marginTop: '10px',
+      marginBottom: '30px',
+    },
+    '@media screen and (max-width: 600px)': {
+      border: 'solid 5px #D3D3D3',
+      width: '95%',
+      height: '37vw',
+      marginLeft: '3px',
+    },
+  }
 });
 
 class Projects extends Component {
@@ -69,6 +89,9 @@ class Projects extends Component {
           )} />
           <Route render={({ history }) => (
             <img onClick={() => { history.push('/Projects/Drag&Drop'); }} src={DragNDrop} alt="todolist" className={classes.imageRight}/>
+          )} />
+          <Route render={({ history }) => (
+            <img onClick={() => { history.push('/Projects/Chaos'); }} src={Chaos} alt="todolist" className={classes.chaos}/>
           )} />
         </div>
       </div>

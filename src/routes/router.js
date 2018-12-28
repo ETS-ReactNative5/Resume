@@ -23,6 +23,7 @@ export const AppRoutes = () => (
       <Route exact path="/Contact" component={Contact} />
       <Route exact path="/Projects/ToDoList" component={ToDoList} />
       <Route exact path="/Projects/Drag&Drop" component={DragAndDrop} />
+      <Route exact path='/Projects/Chaos' component={() => { window.location = 'https://id1zg8jjnezwxsiyvjbong-on.drv.tw/Chaos%20Game/'; return null;} }/>
     </RouterSwitch>
   </BrowserRouter>
 );
