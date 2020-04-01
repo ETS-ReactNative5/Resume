@@ -6,7 +6,7 @@ import configureStore from '../../store/store';
 import { history as History } from '../../utils/history';
 import { withStyles } from '@material-ui/core/styles';
 import Pictureme from './pictureMe.jpg';
-import SkillBar from 'react-skillbars';
+// import SkillBar from 'react-skillbars';
 
 const styles = () => ({
   pictureOfMe: {
@@ -124,14 +124,12 @@ class About extends Component {
             <h1>
             Frontend
             </h1>
-            <SkillBar  skills={skillsFront} colors={colors} height={25}/>
 
           </div>
           <div style={{paddingBottom: '20%'}} className={classes.skillBar}>
             <h1>
             Backend
             </h1>
-            <SkillBar  skills={skillsBack} colors={colors} height={25}/>
 
           </div>
         </div>

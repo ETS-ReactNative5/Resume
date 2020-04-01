@@ -6,14 +6,14 @@ import { history as History } from './utils/history';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     document.title = 'Tsvetomir Batinov';
   }
 
   render() {
     return (
-      <div style={{margin: '0px'}}>
-        <AppRoutes/>
+      <div style={{ margin: '0px' }}>
+        <AppRoutes />
       </div>
     );
   }
